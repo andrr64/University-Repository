@@ -3,6 +3,7 @@ class Latihan1 extends CI_Controller
 {
     public function index()
     {
+        echo "anjir";
     }
 
     public function sum($n1, $n2)
