@@ -1,4 +1,4 @@
-export const PORT = 9999;
+export const PORT = 5555;
 
 const _mongoDBPassword = 'ANDrea5!MONgodBroot';
 export const mongoDBURL = 
