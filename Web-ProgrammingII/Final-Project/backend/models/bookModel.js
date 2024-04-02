@@ -1,5 +1,6 @@
 import {mongoose} from 'mongoose';
 
+const _collectionName = 'books'; // Ini adalah nama koleksi yang akan dihubungkan ke aplikasi
 const bookSchema = mongoose.Schema(
     {
         title: {
@@ -20,4 +21,4 @@ const bookSchema = mongoose.Schema(
     }
 );
 
-export const Book = mongoose.model('Cat', bookSchema);
+export const Book = mongoose.model(_collectionName, bookSchema);
