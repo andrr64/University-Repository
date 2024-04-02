@@ -1,21 +1,21 @@
 body{
-background: #eee;
-color: #333;
-font-family: sans-serif;
-font-size:15px;
+    background: #eee;
+    color: #333;
+    font-family: sans-serif;
+    font-size:15px;
 }
 #wrapper{
-background: #fff;
-width: 1100px;
-margin: 20px auto;
+    background: #fff;
+    width: 1100px;
+    margin: 20px auto;
 }
 #wrapper header{
-background: #232323;
-padding: 20px;
+    background: #232323;
+    padding: 20px;
 }
 #wrapper header hgroup{
-float: left;
-color: #fff;
+    float: left;
+    color: #fff;
 }
 #wrapper header nav{
 float: right;

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!DOCTYPE wml PUBLIC "-//WAPFORUM//DTD WML 1.3//EN" "http://www.wapforum.org/DTD/wml13.dtd">
+<wml>
+    <card id="main" title="Selamat Datang">
+        <p>Selamat datang di halaman web WML sederhana!</p>
+        <p>Silakan klik tombol di bawah untuk melanjutkan.</p>
+        <do type="accept" label="Lanjut">
+            <go href="page2.wml"/>
+        </do>
+    </card>
+</wml>
