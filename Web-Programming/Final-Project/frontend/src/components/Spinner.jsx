@@ -1,7 +1,9 @@
 const Spinner = () => {
   return (
-    <div className="animate-ping w-16 h-16 m-8 rounded-full bg-sky-600"></div>
-  )
-}
+    <div className="flex justify-center items-center">
+      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900"></div>
+    </div>
+  );
+};
 
-export default Spinner
+export default Spinner;
