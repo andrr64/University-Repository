@@ -1,9 +1,19 @@
 import express from 'express'
+import mongoose from 'mongoose'
+import dotenv from 'dotenv'
+
+dotenv.config();
+
+mongoose
+    .connect(process.env.MONGODB)
+    .then(() => {
+        console.log('Berhasil terhubung ke database...');
+    })
+    .catch((err) => {
+        console.log(err);
+    });
 
 const app = express(); // Express Object
-
-
-const port = 3000;
-app.listen(port, () => {
-    console.log(`listen in port ${port}`);
+app.listen(process.env.PORT, () => {
+    console.log(`Server berhasil berjalan...`);
 })
