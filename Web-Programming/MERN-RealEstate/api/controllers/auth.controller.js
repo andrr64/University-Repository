@@ -19,7 +19,6 @@ export const signup = async (req, res, next) => {
 export const signin = async(req, res, next) => {
     //1. Destruktur data dari request client
     const {email, password} = req.body;
-    console.log(req.body);
     try {
         // 2. Cari apakah ada user dengan email yang sama
         const validUser = await User.findOne({email});
