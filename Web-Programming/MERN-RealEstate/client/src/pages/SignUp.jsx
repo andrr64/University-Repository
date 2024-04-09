@@ -52,12 +52,23 @@ const SignUp = () => {
     <div className="p-3 max-w-lg mx-auto">
       <h1 className='text-3xl text-center font-semibold my-7'>Sign Up</h1>
       <form className='flex flex-col gap-4'>
-        <input type="text" placeholder='Username' onChange={handleChange}
-          className='border p-3 rounded-lg' id='username'/>
-        <input type="email" placeholder='Email' onChange={handleChange}
-          className='border p-3 rounded-lg' id='email'/>
-        <input type="password" placeholder='Password' onChange={handleChange}
-          className='border p-3 rounded-lg' id='password'/> 
+        <input 
+          type="text" 
+          placeholder='Username' 
+          onChange={handleChange}
+          className='border p-3 rounded-lg' 
+          id='username'/>
+        <input 
+          type="email" placeholder='Email' 
+          onChange={handleChange}
+          className='border p-3 rounded-lg' 
+          id='email'/>
+        <input 
+          type="password" 
+          placeholder='Password' 
+          onChange={handleChange}
+          className='border p-3 rounded-lg' 
+          id='password'/> 
         <button 
           disabled={loading}
           onClick={handleSubmit}
@@ -65,7 +76,7 @@ const SignUp = () => {
           {loading? 'Loading...' : 'Sign Up'}
         </button>
       </form>
-      <div className="flex gap-2 mt-5">
+      <div className="font-semibold flex gap-2 mt-5">
         <p>Have an account?</p>
         <Link to={'/sign-in'}>
           <span className='text-blue-700'>Sign In</span>
