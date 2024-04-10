@@ -1,11 +1,13 @@
 import {Link, useNavigate} from 'react-router-dom';
 import {useState} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { signInFailure, signInStart, signInSuccess } from '../redux/user/userSlice.js';
 
 const SignIn = () => {
   const [formData, setFormData] =  useState({});
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const {loading, error} = useSelector((state) => state.user);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     setFormData(
@@ -18,9 +20,7 @@ const SignIn = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // const usernameOrEmail = formData.username_email || '';
-      // const identifier = usernameOrEmail.includes('@') ? 'email' : 'username';
-      setLoading(true);
+      dispatch(signInStart());
       const res = await fetch(
         // ini akan menjadi http://localhost:3000/api/auth/signup
         // baca vite.config.js untuk info lebih lanjut
@@ -32,21 +32,18 @@ const SignIn = () => {
           },
           body: JSON.stringify(formData)
         });
-      const responseData = await res.json();
+      const data = await res.json();
 
       // Periksa apakah respons dari MongoDB berhasi menyimpan data atau tidak
-      if(responseData.success === false){
+      if(data.success === false){
         // Jika tidak berhasil maka
-        setError(responseData.message);
-        setLoading(false);
+        dispatch(signInFailure(data.message));
         return;
       }
-      setLoading(false);
-      setError(null);
+      dispatch(signInSuccess(data));
       navigate('/');
     } catch (error) {
-      setError(error.message);
-      setLoading(false);
+      dispatch(signInFailure(error.message));
     }
   }
 
