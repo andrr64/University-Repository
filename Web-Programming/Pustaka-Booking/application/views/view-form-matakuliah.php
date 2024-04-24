@@ -21,6 +21,8 @@
                     <th>:</th>
                     <td>
                         <input type="text" name="kode" id="kode">
+                        <!-- Tampilkan pesan kesalahan jika ada -->
+                        <?= form_error('kode'); ?>
                     </td>
                 </tr>
                 <tr>
@@ -28,6 +30,8 @@
                     <th>:</th>
                     <td>
                         <input type="text" name="nama" id="nama">
+                        <!-- Tampilkan pesan kesalahan jika ada -->
+                        <?= form_error('nama'); ?>
                     </td>
                 </tr>
                 <tr>
@@ -40,6 +44,7 @@
                             <option value="3">3</option>
                             <option value="4">4</option>
                         </select>
+                        <?= form_error('sks'); ?>
                     </td>
                 </tr>
                 <tr>
