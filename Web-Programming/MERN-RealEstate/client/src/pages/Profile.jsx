@@ -17,6 +17,7 @@ import {
   signOutStart,
   signOutSuccess
 } from "../redux/user/userSlice.js";
+import {Link} from 'react-router-dom';
 
 const Profile = () => {
   const fileRef = useRef(null);
@@ -193,6 +194,12 @@ const Profile = () => {
           className="bg-slate-700 text-white rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80">
           {loading? 'Updating...' : 'Update'}
         </button>
+        <Link
+          className='hover:opacity-95 bg-green-700 text-white p-3 rounded-lg uppercase text-center'
+          to={'/create-listing'}
+        >
+          Create Listing
+        </Link>
       </form>
       <div className="flex justify-between mt-5">
         <span 
