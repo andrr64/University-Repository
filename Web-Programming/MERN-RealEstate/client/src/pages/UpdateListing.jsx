@@ -1,10 +1,10 @@
-import { getDownloadURL, getStorage, ref, uploadBytesResumable } from "firebase/storage";
-import { useState } from "react"
+import { getDownloadURL, getStorage, list, ref, uploadBytesResumable } from "firebase/storage";
+import { useEffect, useState } from "react"
 import { app } from "../firebase";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-export default function CreatingListing() {
+export default function UpdateListing() {
     const [files, setFiles] = useState([]);
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
@@ -26,6 +26,23 @@ export default function CreatingListing() {
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
     const {currentUser} = useSelector((state) => state.user);
+    const params = useParams();
+
+    useEffect(() => {
+        const fetchListing = async () => {
+          const listingId = params.listingid;
+          console.log(listingId);
+          const res = await fetch(`/api/listing/get/${listingId}`);
+          const data = await res.json();
+          if (data.success === false) {
+            setError(data.message);
+            return;
+          }
+          setFormData(data);
+        };
+        fetchListing();
+      }, []); // Empty dependency array ensures the effect runs only once
+      
 
     const handleImageSubmit = async (e) => {
         e.preventDefault(); // Prevent default form submission behavior
@@ -149,7 +166,7 @@ export default function CreatingListing() {
     };
     return (
         <main className="p-3 max-w-4xl mx-auto">
-            <h1 className='text-3xl font-semibold text-center my-7'>Create Listing</h1>
+            <h1 className='text-3xl font-semibold text-center my-7'>Update Listing</h1>
             <form className='flex flex-col sm:flex-row gap-4'>
                 <div className='flex flex-col gap-4 flex-1'>
                     <input 
