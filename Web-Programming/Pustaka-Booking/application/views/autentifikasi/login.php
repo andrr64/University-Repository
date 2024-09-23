@@ -29,7 +29,7 @@
                                     <a class="small" href="<?= base_url('autentifikasi/lupaPassword'); ?>">Lupa Password?</a>
                                 </div>
                                 <div class="text-center">
-                                    <a class="small" href="<?= base_url('autentifikasi/registrasi'); ?>">Daftar Member!</a>
+                                    <a class="small" href="<?= base_url('autentifikasi/registrasi'); ?>">Daftar Menjadi Member!</a>
                                 </div>
                             </div>
                         </div>

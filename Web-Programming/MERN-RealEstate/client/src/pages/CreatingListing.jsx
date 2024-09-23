@@ -51,6 +51,7 @@ export default function CreatingListing() {
         }
         setUploading(false);
     };
+
     const handleChange = (e) => {
         if(e.target.id === 'sale' || e.target.id === 'rent'){
             setFormData({
@@ -147,6 +148,7 @@ export default function CreatingListing() {
         );
       });
     };
+
     return (
         <main className="p-3 max-w-4xl mx-auto">
             <h1 className='text-3xl font-semibold text-center my-7'>Create Listing</h1>
@@ -291,12 +293,12 @@ export default function CreatingListing() {
                     </p>
                     <div className="flex gap-4">
                         <input 
-                        onChange={(e) => setFiles(e.target.files)}
-                        className="p-3 border border-gray-300 rounded w-full" 
-                        type="file" 
-                        id="images" 
-                        accept="image/*" 
-                        multiple
+                            onChange={(e) => setFiles(e.target.files)}
+                            className="p-3 border border-gray-300 rounded w-full" 
+                            type="file" 
+                            id="images" 
+                            accept="image/*" 
+                            multiple
                         />
                         <button
                         disabled={uploading}
